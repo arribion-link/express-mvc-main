@@ -1,7 +1,3 @@
-Here’s a clean and professional example of how you could document your authentication logic in a `README.md` file. This helps other developers understand what your code does, how to use it, and what to expect from the endpoints.
-
----
-
 ## 🛡️ Authentication Module
 
 This module provides basic user registration and login functionality using Node.js, Express, MongoDB, and bcrypt for password hashing.
@@ -86,7 +82,3 @@ Authenticates an existing user.
 - Passwords are hashed with a salt factor of 10
 - Consider adding JWT authentication for session management
 - Error handling could be improved with more specific status codes
-
----
-
-Want help writing the README for your whole project, including setup instructions and environment variables? I can help you build that out too.
