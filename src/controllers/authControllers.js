@@ -1,3 +1,15 @@
+/**
+ * The above code defines functions for user registration and login using bcrypt for password hashing
+ * and validation.
+ * @param req - `req` stands for the request object in Node.js. It represents the HTTP request that is
+ * sent from the client to the server. The `req` object contains information about the request such as
+ * the URL, headers, parameters, body, etc. In the provided code snippets, `req` is
+ * @param res - The `res` parameter in your code represents the response object in Express.js. It is
+ * used to send a response back to the client making the request. You can use methods on the `res`
+ * object like `res.status()` to set the HTTP status code of the response, `res.json()`
+ * @returns The code provided contains two functions: `register` and `login`, which are used for user
+ * registration and user login, respectively.
+ */
 import userModel from "../models/authSchema.js";
 import bcrypt from 'bcrypt';
 
