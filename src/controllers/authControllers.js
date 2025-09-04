@@ -1,4 +1,4 @@
-import userModel from "../models/authSchema";
+import userModel from "../models/authSchema.js";
 import bcrypt from 'bcrypt';
 
 export const register = async (req, res) => {
@@ -42,8 +42,45 @@ export const register = async (req, res) => {
     }
 }
 
-export const login = (req, res) => {
-    res.send('Login Route')
+export const login = async (req, res) => {
+    const { username, email, password } = req.body;
+    try {
+        if (!username || !email || !password) {
+            return res.status(400).json({
+                message: "All fields are required!",
+            });
+        }
+
+        const matchUser = await userModel.findOne({ email });
+        if (!matchUser) {
+            return res.status(400).json({
+                message: 'user does not exist, Register first'
+            });
+        }
+
+
+
+        const matchPassword = await bcrypt.compare(
+            password,
+           matchUser.password
+        );
+        if (!matchPassword) {
+            return res.status(400).json({
+                message: "Password provided is wrong try again"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "User logged in sucessfully"
+        });
+        
+    } catch (err) {
+          res.status(500).json({
+            success: false,
+            message: "error logging in the user",
+          });
+    }
 }
 
 export default { register, login }
